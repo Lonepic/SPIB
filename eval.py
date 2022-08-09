@@ -170,13 +170,11 @@ criterion = loss_helper_weak.get_weak_loss
 
 # Load checkpoint if there is any
 it = -1 # for the initialize value of `LambdaLR` and `BNMomentumScheduler`
-start_epoch = 0
 if CHECKPOINT_PATH is not None and os.path.isfile(CHECKPOINT_PATH):
     checkpoint = torch.load(CHECKPOINT_PATH)
-    net.load_state_dict(checkpoint['model_state_dict'],False)   # 多gpu
-    # net.load_state_dict(checkpoint['model_state_dict'])    # 单gpu
+    net.load_state_dict(checkpoint['model_state_dict'])
     start_epoch = checkpoint['epoch']
-    log_string("-> loaded checkpoint %s (epoch: %d)"%(CHECKPOINT_PATH, start_epoch))
+    log_string("-> loaded checkpoint %s"%(CHECKPOINT_PATH))
   
 
 TEST_VISUALIZER = TfVisualizer(FLAGS, 'test')
@@ -248,9 +246,7 @@ def main():
     global EPOCH_CNT 
     
     mAP_max_25 = 0.0
-    mAP_max_25_epoch = 0
     mAP_max_50 = 0.0
-    mAP_max_50_epoch = 0
 
     log_string(str(datetime.now()))
     # Reset numpy seed.
