@@ -38,7 +38,6 @@ sys.path.append(os.path.join(ROOT_DIR, 'models'))
 from pytorch_utils import BNMomentumScheduler
 from tf_visualizer import Visualizer as TfVisualizer
 from ap_helper_weak import APCalculator, parse_predictions, parse_groundtruths
-import loss_helper_weak
 
 #os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
