@@ -62,7 +62,7 @@ We follow the VoteNet codebase for preprocessing our data. The instructions for 
 
 ## Run eval
 
-You can download pre-trained models and sample point clouds [HERE](https://drive.google.com/file/d/1oem0w5y5pjo2whBhAqTtuaYuyBu1OG8l/view?usp=sharing). Unzip the file under the project root path (`/path/to/project/demo_files`) and then run:
+You can download pre-trained models and sample point clouds [HERE](https://drive.google.com/file/d/1mVA9R-KzwWdFRnir0_ZUI7PiCcMlTKKg/view?usp=sharing). Unzip the file under the project root path (`/path/to/project/demo_files`) and then run:
 
 ```shell
 python eval.py
