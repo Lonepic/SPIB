@@ -33,8 +33,6 @@ cd pointnet2
 python setup.py install
 ```
 
-To see if the compilation is successful, try to run `python models/votenet.py` to see if a forward pass works.
-
 Install the following Python dependencies (with `pip install`):
 
 ```
