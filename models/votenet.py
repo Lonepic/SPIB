@@ -66,32 +66,8 @@ class VoteNet(nn.Module):
         # Vote aggregation and detection
         self.pnet = ProposalModule(num_class, num_heading_bin, num_size_cluster,
             mean_size_arr, num_proposal, sampling)
-        
-        # *******************************************semantic_seg*******************************************
-        # 全独立分割头
-        for param in self.parameters():
-            param.requires_grad = False
              
         self.backbone_net_weak = Pointnet2Backbone_weak(input_feature_dim=self.input_feature_dim)
-        
-        # 部分独立分割头
-        #for k,v in self.named_parameters():
-        #    if 'fp3' in k or 'fp4' in k or 'fc_layer' in k:
-        #        v.requires_grad = True
-        #    else:
-        #        v.requires_grad = False
-        
-        for name, param in self.named_parameters():
-            if param.requires_grad:
-                print(name)
-
-    # def train(self, mode: bool = True):
-    #     super(VoteNet, self).train(mode)
-    #     for module in [self.backbone_net, self.vgen, self.pnet]:
-    #         module.eval()
-    #         for param in module.parameters():
-    #             param.requires_grad=False
-    #     return self
     
     def forward(self, inputs):
         """ Forward pass of the network
